@@ -1,0 +1,12 @@
+load("@gazelle//:def.bzl", "gazelle")
+load("@rules_go//go:def.bzl", "go_library")
+
+gazelle(name = "gazelle")
+
+go_library(
+    name = "dep_a",
+    srcs = ["something.go"],
+    importpath = "github.com/zecke/gosumissue/dep_a",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_jhump_protoreflect//desc/protoprint"],
+)
